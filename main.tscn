@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://3bpeqeebkrmo"]
+
+[ext_resource type="Script" uid="uid://2oa8muujgfit" path="res://_scripts/image_scroller.gd" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://cwxobgnim1c47" path="res://icon.svg" id="1_ig7tw"]
+
+[node name="Main" type="Node2D" unique_id=1640866435]
+
+[node name="HomeScreen" type="Node2D" parent="." unique_id=787528761]
+
+[node name="ImageScroller" type="Node2D" parent="HomeScreen" unique_id=1031963934]
+script = ExtResource("1_0xm2m")
+
+[node name="ScrollingImage" type="Sprite2D" parent="HomeScreen/ImageScroller" unique_id=1741603973]
+position = Vector2(-1408, 512)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ig7tw")
+
+[node name="ScrollingImage5" type="Sprite2D" parent="HomeScreen/ImageScroller" unique_id=1914609919]
+position = Vector2(-384, 512)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ig7tw")
+
+[node name="ScrollingImage2" type="Sprite2D" parent="HomeScreen/ImageScroller" unique_id=1315451140]
+position = Vector2(640, 512)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ig7tw")
+
+[node name="ScrollingImage3" type="Sprite2D" parent="HomeScreen/ImageScroller" unique_id=485932282]
+position = Vector2(1664, 512)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ig7tw")
+
+[node name="ScrollingImage4" type="Sprite2D" parent="HomeScreen/ImageScroller" unique_id=1603238478]
+position = Vector2(2688, 512)
+scale = Vector2(8, 8)
+texture = ExtResource("1_ig7tw")
