@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d3tonfewmlbtx"]
 
+[ext_resource type="Script" uid="uid://dw6tc6k2spww6" path="res://_scripts/background_selection.gd" id="1_cjxwk"]
 [ext_resource type="Script" uid="uid://3dryyos2k6uf" path="res://_scripts/tab_bar.gd" id="1_s2mde"]
 
 [node name="OrderScreen" type="Control" unique_id=1574650878]
@@ -10,9 +11,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="BackgroundSelection" type="ScrollContainer" parent="." unique_id=1131618317]
+custom_minimum_size = Vector2(1280, 1024)
+custom_maximum_size = Vector2(1280, 984)
+layout_mode = 0
+offset_left = -1.0
+offset_top = 42.0
+offset_right = 1279.0
+offset_bottom = 1026.0
+script = ExtResource("1_cjxwk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackgroundSelection" unique_id=337036487]
+layout_mode = 2
+
 [node name="TabBar" type="TabBar" parent="." unique_id=1336806316]
 layout_mode = 0
-offset_right = 712.0
+offset_right = 1280.0
 offset_bottom = 40.0
 current_tab = 0
 tab_count = 7
