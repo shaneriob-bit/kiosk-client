@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://d3tonfewmlbtx"]
 
+[ext_resource type="Script" uid="uid://3dryyos2k6uf" path="res://_scripts/tab_bar.gd" id="1_s2mde"]
+
 [node name="OrderScreen" type="Control" unique_id=1574650878]
 layout_mode = 3
 anchors_preset = 15
@@ -21,3 +23,4 @@ tab_3/title = "Nature"
 tab_4/title = "Movies and Games"
 tab_5/title = "Places"
 tab_6/title = "Other/Weird"
+script = ExtResource("1_s2mde")
