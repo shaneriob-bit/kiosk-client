@@ -15,12 +15,20 @@ run/main_scene="uid://3bpeqeebkrmo"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+StateManager="*uid://c4k3jthtep7w3"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=1024
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[global_group]
+
+GroupListener=""
 
 [physics]
 

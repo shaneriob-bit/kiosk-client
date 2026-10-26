@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://3bpeqeebkrmo"]
+
+[ext_resource type="PackedScene" uid="uid://beopu7xiwbum2" path="res://_scenes/home_ui.tscn" id="1_3q5j6"]
+[ext_resource type="Script" uid="uid://duvhe0n8m3cna" path="res://_scripts/home_screen.gd" id="1_6bnj4"]
+[ext_resource type="Script" uid="uid://2oa8muujgfit" path="res://_scripts/image_scroller.gd" id="1_x6rnu"]
+[ext_resource type="Texture2D" uid="uid://ckql0oco1bm7r" path="res://p17.png" id="2_3q5j6"]
+[ext_resource type="PackedScene" uid="uid://d3tonfewmlbtx" path="res://_scenes/order_screen.tscn" id="4_lavtb"]
+[ext_resource type="Script" uid="uid://ctbv8h2747qo4" path="res://_scripts/order_screen.gd" id="6_ce27d"]
+
+[node name="Main" type="Node2D" unique_id=1640866435]
+
+[node name="HomeScreen" type="Node2D" parent="." unique_id=787528761 groups=["GroupListener"]]
+script = ExtResource("1_6bnj4")
+
+[node name="HomeUILayer" type="CanvasLayer" parent="HomeScreen" unique_id=1790018359]
+
+[node name="HomeUI" parent="HomeScreen/HomeUILayer" unique_id=2144548917 instance=ExtResource("1_3q5j6")]
+
+[node name="ImageScroller" type="Node2D" parent="HomeScreen" unique_id=1031963934]
+script = ExtResource("1_x6rnu")
+
+[node name="ScrollingImage" type="Sprite2D" parent="HomeScreen/ImageScroller" unique_id=1741603973]
+position = Vector2(640, 512)
+texture = ExtResource("2_3q5j6")
+
+[node name="OrderScreen" parent="." unique_id=1574650878 groups=["GroupListener"] instance=ExtResource("4_lavtb")]
+visible = false
+script = ExtResource("6_ce27d")

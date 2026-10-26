@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://beopu7xiwbum2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1sknq"]
+bg_color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+border_width_bottom = 8
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mvnrc"]
+font_size = 42
+
+[sub_resource type="LabelSettings" id="LabelSettings_6igiu"]
+font_size = 42
+font_color = Color(0.9999984, 0.99523443, 0.6165508, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6igiu"]
+bg_color = Color(0.17641908, 0.17641911, 0.17641899, 1)
+border_width_top = 8
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1sknq"]
+font_size = 42
+font_color = Color(0.9999984, 0.99523443, 0.6165508, 1)
+
+[sub_resource type="Animation" id="Animation_1sknq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomPanel/UserPrompt:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6igiu"]
+resource_name = "text_prompt_flash"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BottomPanel/UserPrompt:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1sknq"]
+_data = {
+&"RESET": SubResource("Animation_1sknq"),
+&"text_prompt_flash": SubResource("Animation_6igiu")
+}
+
+[node name="HomeUI" type="Control" unique_id=2144548917]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopPanel" type="Panel" parent="." unique_id=864589502]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -640.0
+offset_right = 640.0
+offset_bottom = 112.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1sknq")
+
+[node name="Title" type="Label" parent="TopPanel" unique_id=712846025]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -29.5
+offset_right = 501.0
+offset_bottom = 28.5
+grow_vertical = 2
+text = "GREEN SCREEN PHOTOS"
+label_settings = SubResource("LabelSettings_mvnrc")
+vertical_alignment = 1
+
+[node name="OfferLabel" type="Label" parent="TopPanel" unique_id=1364811796]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -624.0
+offset_top = -34.0
+offset_right = -33.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "PRINT + DIGITAL DOWNLOAD"
+label_settings = SubResource("LabelSettings_6igiu")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="BottomPanel" type="Panel" parent="." unique_id=42475162]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -640.0
+offset_top = -112.0
+offset_right = 640.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6igiu")
+
+[node name="UserPrompt" type="Label" parent="BottomPanel" unique_id=1962625224]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = -34.0
+offset_right = 615.0
+offset_bottom = 33.0
+grow_vertical = 2
+text = "PRESS ANY KEY TO BEGIN"
+label_settings = SubResource("LabelSettings_mvnrc")
+vertical_alignment = 1
+
+[node name="OfferLabel2" type="Label" parent="BottomPanel" unique_id=914263595]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -623.0
+offset_top = -34.0
+offset_right = -32.0
+offset_bottom = 33.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "TODAYS'S THEME: FSU"
+label_settings = SubResource("LabelSettings_1sknq")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1170224764]
+libraries/ = SubResource("AnimationLibrary_1sknq")
+autoplay = &"text_prompt_flash"
