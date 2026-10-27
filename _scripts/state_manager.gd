@@ -9,6 +9,10 @@ enum ProgramStates
 var currentProgramState = ProgramStates.HOME
 var idle_timer : Timer
 
+var idle_alert = false
+
+var idle_screen : CanvasLayer
+
 func _ready():
 	idle_timer = Timer.new()
 	self.add_to_group("StateListener")
@@ -31,3 +35,19 @@ func change_state(state):
 func _input(_event: InputEvent) -> void:
 	# reset the timer
 	idle_timer.start(30)
+
+func get_idle_time_left():
+	return idle_timer.wait_time
+	
+func set_idle_screen(screen):
+	idle_screen = screen
+
+func _process(_delta: float) -> void:
+	# maybe consider changing this to every second
+	if idle_timer.time_left < 10:
+		if idle_screen != null:
+			idle_screen.update_seconds(idle_timer.time_left)
+			idle_screen.visible = true
+	else:
+		if idle_screen != null:
+			idle_screen.visible = false

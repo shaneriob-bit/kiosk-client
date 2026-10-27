@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://cv2fb28amypr8"]
+
+[ext_resource type="Script" uid="uid://bag23c1vli6yq" path="res://_scripts/idle_screen.gd" id="1_ncu35"]
+
+[node name="IdleScreen" type="CanvasLayer" unique_id=1040489430]
+script = ExtResource("1_ncu35")
+
+[node name="Panel" type="Panel" parent="." unique_id=49686623]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=1967678710]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "Are you still ordering?
+
+You will be automatically signed out in 10 seconds.
+
+Press any key or move the mouse to continue."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

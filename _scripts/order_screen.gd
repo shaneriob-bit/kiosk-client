@@ -26,7 +26,7 @@ func update_count_label():
 	
 	$PhotoCountLabel.text = "You will be taking\n" + str(total_count) + " photos" 
 
-func _input(_event: InputEvent) -> void:
+func _process(_delta: float) -> void:
 	# this is a massive waste of CPU cycles but we are in a rush here
 	if visible and get_parent().visible:
 		update_count_label()
