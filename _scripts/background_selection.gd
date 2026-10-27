@@ -2,6 +2,8 @@ extends ScrollContainer
 
 var background_selection_button_scene = preload("res://_scenes/background_button.tscn")
 
+@onready var tab_bar : TabBar = $"../TabBar"
+
 func _ready() -> void:
 	var backgrounds_path = "user://backgrounds"
 	var background_folder = DirAccess.open(backgrounds_path)
@@ -20,7 +22,7 @@ func _ready() -> void:
 		next_section = background_folder.get_next()
 	background_folder.list_dir_end()
 	
-	var tab_bar = $"../TabBar"
+	
 	var ordered_names = tab_bar.get_ordered_names()
 	
 	sections.sort_custom(func(a, b):
@@ -74,8 +76,7 @@ func _ready() -> void:
 	update_scroll_container_width()
 
 func _on_tab_bar_tab_changed(tab: int) -> void:
-	var ordered_names = $"../TabBar".get_ordered_names()
-	var tab_name = ordered_names[tab]
+	var tab_name = tab_bar.get_tab_title(tab)
 	var label_node = $VBoxContainer.get_node(tab_name)
 	self.scroll_vertical = label_node.position.y
 	
