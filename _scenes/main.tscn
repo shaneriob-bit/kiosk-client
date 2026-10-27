@@ -10,11 +10,14 @@
 [node name="Main" type="Node2D" unique_id=1640866435]
 
 [node name="HomeScreen" type="Node2D" parent="." unique_id=787528761 groups=["GroupListener"]]
+visible = false
 script = ExtResource("1_6bnj4")
 
 [node name="HomeUILayer" type="CanvasLayer" parent="HomeScreen" unique_id=1790018359]
+visible = false
 
 [node name="HomeUI" parent="HomeScreen/HomeUILayer" unique_id=2144548917 instance=ExtResource("1_3q5j6")]
+visible = false
 
 [node name="ImageScroller" type="Node2D" parent="HomeScreen" unique_id=1031963934]
 script = ExtResource("1_x6rnu")
@@ -23,6 +26,9 @@ script = ExtResource("1_x6rnu")
 position = Vector2(640, 512)
 texture = ExtResource("2_3q5j6")
 
-[node name="OrderScreen" parent="." unique_id=1574650878 groups=["GroupListener"] instance=ExtResource("4_lavtb")]
-visible = false
+[node name="OrderScreenLayer" type="CanvasLayer" parent="." unique_id=478058512]
+
+[node name="OrderScreen" parent="OrderScreenLayer" unique_id=1574650878 groups=["GroupListener"] instance=ExtResource("4_lavtb")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("6_ce27d")

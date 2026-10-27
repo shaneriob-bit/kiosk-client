@@ -13,14 +13,29 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="Label" type="Label" parent="." unique_id=1650628495]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -356.0
+offset_top = -72.5
+offset_bottom = 72.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "You be taking # photos"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="BackgroundSelection" type="ScrollContainer" parent="." unique_id=1131618317]
 custom_minimum_size = Vector2(1280, 1024)
 custom_maximum_size = Vector2(920, 984)
 layout_mode = 0
 offset_left = -1.0
 offset_top = 42.0
-offset_right = 1279.0
-offset_bottom = 1026.0
 offset_right = 921.0
 offset_bottom = 1024.0
 script = ExtResource("1_cjxwk")

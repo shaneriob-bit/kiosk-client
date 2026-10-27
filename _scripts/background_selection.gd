@@ -23,7 +23,12 @@ func _ready() -> void:
 	background_folder.list_dir_end()
 	
 	
-	var ordered_names = tab_bar.get_ordered_names()
+	var ordered_names : Array = tab_bar.get_ordered_names()
+	
+	if ordered_names.size() == 0:
+		# fallback to the order of the tabs if no json
+		for i in tab_bar.tab_count:
+			ordered_names.append(tab_bar.get_tab_title(i))
 	
 	sections.sort_custom(func(a, b):
 		var index_a = ordered_names.find(a)
