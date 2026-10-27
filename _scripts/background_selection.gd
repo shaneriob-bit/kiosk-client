@@ -81,7 +81,7 @@ func _ready() -> void:
 	update_scroll_container_width()
 
 func _on_tab_bar_tab_changed(tab: int) -> void:
-	var tab_name = tab_bar.get_tab_title(tab)
+	var tab_name = tab_bar.get_tab_metadata(tab)
 	var label_node = $VBoxContainer.get_node(tab_name)
 	self.scroll_vertical = label_node.position.y
 	

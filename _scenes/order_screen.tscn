@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d3tonfewmlbtx"]
 
+[ext_resource type="Script" uid="uid://ctbv8h2747qo4" path="res://_scripts/order_screen.gd" id="1_6xnw5"]
 [ext_resource type="Script" uid="uid://dw6tc6k2spww6" path="res://_scripts/background_selection.gd" id="1_cjxwk"]
 [ext_resource type="Script" uid="uid://3dryyos2k6uf" path="res://_scripts/tab_bar.gd" id="1_s2mde"]
 
@@ -12,23 +13,50 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_6xnw5")
 
-[node name="Label" type="Label" parent="." unique_id=1650628495]
+[node name="Information" type="Label" parent="." unique_id=1650628495]
+custom_maximum_size = Vector2(356, -1)
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -356.0
-offset_top = -72.5
-offset_bottom = 72.5
+offset_left = -369.0
+offset_top = -305.0
+offset_right = -13.0
+offset_bottom = 99.0
 grow_horizontal = 0
 grow_vertical = 2
-theme_override_font_sizes/font_size = 26
-text = "You be taking # photos"
+theme_override_font_sizes/font_size = 24
+text = "Find photo backgrounds on the left by scrolling or choosing a section at the top.
+You will purchase a photo for each background you have selected.
+Use the arrow buttons when you have the background selected if you would like to take multiple photos with the same background."
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="PhotoCountLabel" type="Label" parent="." unique_id=261761]
+custom_maximum_size = Vector2(356, -1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -384.0
+offset_top = 197.0
+offset_right = -28.0
+offset_bottom = 231.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "You will be taking 
+## photos"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="BackgroundSelection" type="ScrollContainer" parent="." unique_id=1131618317]
 custom_minimum_size = Vector2(1280, 1024)

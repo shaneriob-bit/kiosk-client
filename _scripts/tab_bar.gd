@@ -48,7 +48,7 @@ func _init() -> void:
 		if section_name in section_names:
 			add_tab(section_name)
 			
-	# (Optional fail-safe) Add any background directories that exist but weren't listed in the JSON config
+	# Add any background directories that exist but weren't listed in the JSON config
 	for section_name in section_names:
 		if not section_name in ordered_names:
 			add_tab(section_name)
@@ -57,6 +57,7 @@ func _init() -> void:
 	var longest_string_length = 0
 	for i in tab_count:
 		var tab_text = get_tab_title(i)
+		set_tab_metadata(i, tab_text)
 		if tab_text.length() > longest_string_length:
 			longest_string_length = tab_text.length()
 	

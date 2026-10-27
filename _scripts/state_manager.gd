@@ -22,7 +22,11 @@ func _on_idle_timer_timeout():
 	change_state(ProgramStates.HOME)
 
 func change_state(state):
-	get_tree().call_group("GroupListener", "_state_changed", state)
+	if state == ProgramStates.HOME:
+		# reset EVERYTHING
+		get_tree().reload_current_scene()
+	else:
+		get_tree().call_group("GroupListener", "_state_changed", state)
 
 func _input(_event: InputEvent) -> void:
 	# reset the timer
