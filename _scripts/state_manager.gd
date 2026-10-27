@@ -23,3 +23,7 @@ func _on_idle_timer_timeout():
 
 func change_state(state):
 	get_tree().call_group("GroupListener", "_state_changed", state)
+
+func _input(_event: InputEvent) -> void:
+	# reset the timer
+	idle_timer.start(30)

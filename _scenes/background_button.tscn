@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://clfr6l63pcnwo"]
+
+[ext_resource type="Texture2D" uid="uid://vfq1dqoyl6pi" path="res://bg_2.bmp" id="1_3letw"]
+[ext_resource type="StyleBox" uid="uid://c5fkh0johtvoq" path="res://_themes/background_selection_button.tres" id="2_gb8ou"]
+[ext_resource type="Script" uid="uid://bmjcdsptvnuat" path="res://_scripts/background_button.gd" id="2_p0a6t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4k5x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(7.315874e-06, 0.96053046, 0.37021276, 1)
+
+[node name="BackgroundSelectionButton" type="TextureButton" unique_id=1243590624]
+custom_minimum_size = Vector2(282, 244)
+offset_right = 282.0
+offset_bottom = 243.0
+toggle_mode = true
+texture_normal = ExtResource("1_3letw")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("2_p0a6t")
+
+[node name="Panel" type="Panel" parent="." unique_id=992350221]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v4k5x")
+
+[node name="UpButton" type="Button" parent="Panel" unique_id=135818572]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -116.0
+offset_right = -7.0
+offset_bottom = -71.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("2_gb8ou")
+text = "↑
+"
+
+[node name="DownButton" type="Button" parent="Panel" unique_id=1121233537]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -54.0
+offset_right = -7.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = ExtResource("2_gb8ou")
+text = "↓"
+
+[node name="Count" type="Label" parent="Panel" unique_id=856050378]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -75.0
+offset_right = -13.0
+offset_bottom = -52.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="toggled" from="." to="." method="_on_toggled"]
+[connection signal="pressed" from="Panel/UpButton" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="Panel/DownButton" to="." method="_on_down_button_pressed"]
