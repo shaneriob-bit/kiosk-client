@@ -20,17 +20,21 @@ func _ready():
 	add_child(idle_timer)
 	idle_timer.timeout.connect(_on_idle_timer_timeout)
 	idle_timer.one_shot = true
-	idle_timer.start(30)
 
 func _on_idle_timer_timeout():
 	change_state(ProgramStates.HOME)
 
 func change_state(state):
+	currentProgramState = state
+	
 	if state == ProgramStates.HOME:
 		# reset EVERYTHING
 		get_tree().reload_current_scene()
 	else:
+		# we are no longer home, start the idle timer
+		idle_timer.start(30)
 		get_tree().call_group("GroupListener", "_state_changed", state)
+
 
 func _input(_event: InputEvent) -> void:
 	# reset the timer
@@ -44,7 +48,7 @@ func set_idle_screen(screen):
 
 func _process(_delta: float) -> void:
 	# maybe consider changing this to every second
-	if idle_timer.time_left < 10:
+	if idle_timer.time_left < 10 and currentProgramState != ProgramStates.HOME:
 		if idle_screen != null:
 			idle_screen.update_seconds(idle_timer.time_left)
 			idle_screen.visible = true

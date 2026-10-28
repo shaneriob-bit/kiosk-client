@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://2oa8muujgfit" path="res://_scripts/image_scroller.gd" id="1_x6rnu"]
 [ext_resource type="Texture2D" uid="uid://ckql0oco1bm7r" path="res://p17.png" id="2_3q5j6"]
 [ext_resource type="PackedScene" uid="uid://d3tonfewmlbtx" path="res://_scenes/order_screen.tscn" id="4_lavtb"]
+[ext_resource type="PackedScene" uid="uid://cv2fb28amypr8" path="res://_scenes/idle_screen.tscn" id="6_ce27d"]
 
 [node name="Main" type="Node2D" unique_id=1640866435]
 
@@ -28,3 +29,6 @@ visible = false
 [node name="OrderScreen" parent="OrderScreenLayer" unique_id=1574650878 groups=["GroupListener"] instance=ExtResource("4_lavtb")]
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="IdleScreen" parent="." unique_id=1040489430 instance=ExtResource("6_ce27d")]
+visible = false

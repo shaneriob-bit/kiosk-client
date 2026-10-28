@@ -4,7 +4,13 @@ var background_selection_button_scene = preload("res://_scenes/background_button
 
 @onready var tab_bar : TabBar = $"../TabBar"
 
+# Flag to prevent infinite loops between scrolling and tab changing
+var _is_syncing: bool = false
+
 func _ready() -> void:
+	# Connect to the scrollbar to detect when the user is scrolling
+	get_v_scroll_bar().value_changed.connect(_on_scroll_changed)
+	
 	var backgrounds_path = "user://backgrounds"
 	var background_folder = DirAccess.open(backgrounds_path)
 	
@@ -22,8 +28,7 @@ func _ready() -> void:
 		next_section = background_folder.get_next()
 	background_folder.list_dir_end()
 	
-	
-	var ordered_names : Array = tab_bar.get_ordered_names()
+	var ordered_names : Array = tab_bar.get_ordered_names() if tab_bar.has_method("get_ordered_names") else []
 	
 	if ordered_names.size() == 0:
 		# fallback to the order of the tabs if no json
@@ -53,7 +58,7 @@ func _ready() -> void:
 		
 		# Create the grid container
 		var grid_container = GridContainer.new()
-		grid_container.name = section
+		grid_container.name = section + "_Grid" # Differentiate grid name from label name
 		grid_container.columns = 3
 		$VBoxContainer.add_child(grid_container)
 		
@@ -80,10 +85,50 @@ func _ready() -> void:
 			
 	update_scroll_container_width()
 
+func _on_scroll_changed(scroll_value: float) -> void:
+	if _is_syncing:
+		return
+		
+	var current_section_name = ""
+	var highest_y = -1.0
+	
+	# Add a small pixel offset so the tab switches just as the label touches the top
+	var scroll_threshold = scroll_value + 20.0 
+	
+	# Find which label is currently at the top of the scroll view
+	for child in $VBoxContainer.get_children():
+		if child is Label:
+			if child.position.y <= scroll_threshold and child.position.y > highest_y:
+				highest_y = child.position.y
+				current_section_name = child.name
+				
+	# If we found an active section, find its corresponding tab and switch to it
+	if current_section_name != "":
+		for i in tab_bar.tab_count:
+			# Adjust this depending on how you store data: get_tab_metadata(i) or get_tab_title(i)
+			if tab_bar.get_tab_metadata(i) == current_section_name or tab_bar.get_tab_title(i) == current_section_name:
+				if tab_bar.current_tab != i:
+					_is_syncing = true
+					tab_bar.current_tab = i
+					_is_syncing = false
+				break
+
 func _on_tab_bar_tab_changed(tab: int) -> void:
+	if _is_syncing:
+		return
+		
 	var tab_name = tab_bar.get_tab_metadata(tab)
-	var label_node = $VBoxContainer.get_node(tab_name)
-	self.scroll_vertical = label_node.position.y
+	
+	# Fallback just in case metadata isn't populated but the title is
+	if tab_name == null: 
+		tab_name = tab_bar.get_tab_title(tab)
+		
+	var label_node = $VBoxContainer.get_node_or_null(tab_name)
+	
+	if label_node:
+		_is_syncing = true
+		self.scroll_vertical = label_node.position.y
+		_is_syncing = false
 	
 func update_scroll_container_width() -> void:
 	# Wait a frame for UI nodes to resolve their minimum sizes

@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://dw6tc6k2spww6" path="res://_scripts/background_selection.gd" id="1_cjxwk"]
 [ext_resource type="Script" uid="uid://3dryyos2k6uf" path="res://_scripts/tab_bar.gd" id="1_s2mde"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvnrc"]
+bg_color = Color(0.33096692, 0.70016587, 0.22375292, 1)
+
 [node name="OrderScreen" type="Control" unique_id=1574650878]
 layout_mode = 3
 anchors_preset = 15
@@ -23,15 +26,18 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -370.0
-offset_top = -479.0
-offset_right = -14.0
-offset_bottom = -75.0
+offset_left = -368.0
+offset_top = -434.0
+offset_right = -12.0
+offset_bottom = 81.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
 text = "Find photo backgrounds on the left by scrolling or choosing a section at the top.
+
+Press a background to select it
 You will purchase a photo for each background you have selected.
+
 Use the arrow buttons when you have the background selected if you would like to take multiple photos with the same background."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -45,12 +51,13 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -376.0
-offset_top = -51.0
-offset_right = -20.0
-offset_bottom = 21.0
+offset_left = -374.0
+offset_top = 131.0
+offset_right = -18.0
+offset_bottom = 203.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.99607843, 0.6156863, 1)
 theme_override_font_sizes/font_size = 24
 text = "You will be taking 
 ## photos"
@@ -76,5 +83,41 @@ layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 40.0
 script = ExtResource("1_s2mde")
+
+[node name="NextButton" type="Button" parent="." unique_id=524724549]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -252.0
+offset_top = -164.0
+offset_right = -124.0
+offset_bottom = -100.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_mvnrc")
+text = "Next"
+
+[node name="DisabledButtonInfo" type="Label" parent="." unique_id=223657350]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -442.0
+offset_top = -164.0
+offset_right = 53.0
+offset_bottom = -93.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Select at least one background
+ to continue"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="tab_changed" from="TabBar" to="BackgroundSelection" method="_on_tab_bar_tab_changed"]

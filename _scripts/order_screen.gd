@@ -25,6 +25,9 @@ func update_count_label():
 		total_count += texture_button.get_count()
 	
 	$PhotoCountLabel.text = "You will be taking\n" + str(total_count) + " photos" 
+	
+	$NextButton.visible = total_count > 0
+	$DisabledButtonInfo.visible = total_count <= 0
 
 func _process(_delta: float) -> void:
 	# this is a massive waste of CPU cycles but we are in a rush here
