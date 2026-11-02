@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bag23c1vli6yq" path="res://_scripts/idle_screen.gd" id="1_ncu35"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54y20"]
+bg_color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+
 [node name="IdleScreen" type="CanvasLayer" unique_id=1040489430]
 script = ExtResource("1_ncu35")
 
@@ -17,6 +20,7 @@ offset_right = 300.0
 offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_54y20")
 
 [node name="Label" type="Label" parent="Panel" unique_id=1967678710]
 custom_minimum_size = Vector2(400, 40)

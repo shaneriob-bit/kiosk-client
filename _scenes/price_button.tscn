@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bd2ytt3cf1n6u"]
+
+[ext_resource type="Script" uid="uid://c01lkpqyhynf1" path="res://_scripts/price_button.gd" id="1_jjnni"]
+[ext_resource type="Texture2D" uid="uid://dkrjiuhkfhayl" path="res://_sprites/printing-icon.png" id="1_w7vf3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4k5x"]
+bg_color = Color(0.9122889, 0.9122889, 0.9122887, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 0.84313726, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_size = 1
+shadow_offset = Vector2(3, 3)
+
+[node name="PriceButton" type="Panel" unique_id=246564266]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v4k5x")
+script = ExtResource("1_jjnni")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=72733981]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -44.0
+offset_right = 24.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_w7vf3")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CopyCount" type="Label" parent="." unique_id=1763384076]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = 4.0
+offset_right = 47.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "2 Print Copies"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Price" type="Label" parent="." unique_id=118185467]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 20.0
+offset_right = 16.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "$19.99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PromotionValue" type="Label" parent="." unique_id=1331331461]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 36.0
+offset_right = 16.0
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.66560394, 1.961328e-06, 4.3317675e-07, 1)
+theme_override_font_sizes/font_size = 10
+text = "SAVE $9.99"
+horizontal_alignment = 1
+vertical_alignment = 1
