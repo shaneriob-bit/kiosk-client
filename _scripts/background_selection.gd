@@ -54,6 +54,7 @@ func _ready() -> void:
 		var label = Label.new()
 		label.text = section
 		label.name = section
+		label.add_theme_font_size_override("font_size", 24)
 		$VBoxContainer.add_child(label)
 		
 		# Create the grid container

@@ -1,8 +1,18 @@
 [gd_scene format=3 uid="uid://d3ouhxciwlerq"]
 
-[ext_resource type="PackedScene" uid="uid://bd2ytt3cf1n6u" path="res://_scenes/price_button.tscn" id="1_ugr70"]
+[ext_resource type="Script" uid="uid://f20y161nf1h1" path="res://_scripts/payment_screen.gd" id="1_ugr70"]
+[ext_resource type="PackedScene" uid="uid://bd2ytt3cf1n6u" path="res://_scenes/price_button.tscn" id="2_54y20"]
+[ext_resource type="Texture2D" uid="uid://ba36kiauos024" path="res://_sprites/money.png" id="3_laopo"]
+[ext_resource type="Texture2D" uid="uid://ygh8rs63pnyt" path="res://_sprites/cheque.png" id="4_xyjts"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugr70"]
+bg_color = Color(0.33096692, 0.70016587, 0.22375292, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54y20"]
+bg_color = Color(0.40108112, 0.38825008, 0.384142, 1)
 
 [node name="PaymentScreen" type="CanvasLayer" unique_id=1685520577]
+script = ExtResource("1_ugr70")
 
 [node name="Control" type="Control" parent="." unique_id=1722366831]
 layout_mode = 3
@@ -13,24 +23,375 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Title" type="Label" parent="Control" unique_id=1791066858]
-layout_mode = 0
-offset_right = 362.0
-offset_bottom = 58.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -184.0
+offset_top = 16.0
+offset_right = 178.0
+offset_bottom = 74.0
+grow_horizontal = 2
 theme_override_font_sizes/font_size = 42
 text = "Delivery Selection"
 
-[node name="PrintPriceContainer" type="HBoxContainer" parent="Control" unique_id=660612948]
+[node name="PrintsLabel" type="Label" parent="Control" unique_id=1825294871]
 layout_mode = 1
-anchors_preset = 14
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -384.0
+offset_right = 68.0
+offset_bottom = -320.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Prints"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EmailsLabel" type="Label" parent="Control" unique_id=199821559]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -128.0
+offset_right = 68.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Email Addresses"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PrintsContainer" type="HBoxContainer" parent="Control" unique_id=2043824524]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.0
+offset_top = -320.0
+offset_right = 204.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Subtract" type="Button" parent="Control/PrintsContainer" unique_id=118329233]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "-"
+
+[node name="Label" type="Label" parent="Control/PrintsContainer/Subtract" unique_id=395652649]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "- $9.99"
+vertical_alignment = 2
+
+[node name="PrintsAmount" type="Label" parent="Control/PrintsContainer" unique_id=1026962676]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Add" type="Button" parent="Control/PrintsContainer" unique_id=1172231009]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "+"
+
+[node name="Label" type="Label" parent="Control/PrintsContainer/Add" unique_id=416294207]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "+ $9.99"
+vertical_alignment = 2
+
+[node name="EmailContainer" type="HBoxContainer" parent="Control" unique_id=487200398]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -576.0
+offset_right = 200.0
+offset_bottom = -448.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Subtract" type="Button" parent="Control/EmailContainer" unique_id=755819423]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "-"
+
+[node name="Label" type="Label" parent="Control/EmailContainer/Subtract" unique_id=896697442]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "- $9.99"
+vertical_alignment = 2
+
+[node name="EmailAmount" type="Label" parent="Control/EmailContainer" unique_id=1924770520]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="Add" type="Button" parent="Control/EmailContainer" unique_id=122427876]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "+"
+
+[node name="Label" type="Label" parent="Control/EmailContainer/Add" unique_id=1684760134]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 18
+text = "+ $9.99"
+vertical_alignment = 2
+
+[node name="TotalsLabel" type="Label" parent="Control" unique_id=236850558]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = 96.0
+offset_right = 174.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Prints (x6): 99.99
+Emails (x5): 99.99
+Multiplied by # photos
+Total: $99.99"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackgroundsContainer" type="ScrollContainer" parent="Control" unique_id=1802674459]
+custom_minimum_size = Vector2(300, 512)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -384.0
+offset_right = 316.0
+offset_bottom = 512.0
+grow_vertical = 2
+scale = Vector2(1, 0.8800003)
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/BackgroundsContainer" unique_id=1311609718]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=2123321844]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -64.0
-offset_bottom = 64.0
-grow_horizontal = 2
+offset_left = -248.0
+offset_top = -374.0
+offset_right = -48.0
+offset_bottom = 258.0
+grow_horizontal = 0
 grow_vertical = 2
-theme_override_constants/separation = 32
-alignment = 1
+theme_override_constants/separation = 16
 
-[node name="PriceButton" parent="Control/PrintPriceContainer" unique_id=246564266 instance=ExtResource("1_ugr70")]
+[node name="Cash" parent="Control/VBoxContainer" unique_id=246564266 instance=ExtResource("2_54y20")]
+custom_minimum_size = Vector2(200, 200)
+custom_maximum_size = Vector2(200, 200)
 layout_mode = 2
+toggle_mode = true
+
+[node name="Icon" parent="Control/VBoxContainer/Cash" index="0" unique_id=72733981]
+offset_left = -40.0
+offset_top = -62.0
+offset_right = 34.0
+offset_bottom = 12.0
+texture = ExtResource("3_laopo")
+
+[node name="CopyCount" parent="Control/VBoxContainer/Cash" index="1" unique_id=1763384076]
+offset_top = 18.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 22
+text = "Cash"
+
+[node name="Debit" parent="Control/VBoxContainer" unique_id=1930924172 instance=ExtResource("2_54y20")]
+custom_minimum_size = Vector2(200, 200)
+custom_maximum_size = Vector2(200, 200)
+layout_mode = 2
+toggle_mode = true
+
+[node name="Icon" parent="Control/VBoxContainer/Debit" index="0" unique_id=72733981]
+offset_left = -40.0
+offset_top = -62.0
+offset_right = 34.0
+offset_bottom = 12.0
+
+[node name="CopyCount" parent="Control/VBoxContainer/Debit" index="1" unique_id=1763384076]
+offset_top = 18.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 22
+text = "Debit"
+
+[node name="Credit" parent="Control/VBoxContainer" unique_id=1974864054 instance=ExtResource("2_54y20")]
+custom_minimum_size = Vector2(200, 200)
+custom_maximum_size = Vector2(200, 200)
+layout_mode = 2
+toggle_mode = true
+
+[node name="Icon" parent="Control/VBoxContainer/Credit" index="0" unique_id=72733981]
+offset_left = -40.0
+offset_top = -62.0
+offset_right = 34.0
+offset_bottom = 12.0
+
+[node name="CopyCount" parent="Control/VBoxContainer/Credit" index="1" unique_id=1763384076]
+offset_top = 18.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 22
+
+[node name="Check" parent="Control/VBoxContainer" unique_id=215290666 instance=ExtResource("2_54y20")]
+custom_minimum_size = Vector2(200, 200)
+custom_maximum_size = Vector2(200, 200)
+layout_mode = 2
+toggle_mode = true
+
+[node name="Icon" parent="Control/VBoxContainer/Check" index="0" unique_id=72733981]
+offset_left = -40.0
+offset_top = -62.0
+offset_right = 34.0
+offset_bottom = 12.0
+texture = ExtResource("4_xyjts")
+
+[node name="CopyCount" parent="Control/VBoxContainer/Check" index="1" unique_id=1763384076]
+offset_top = 18.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 22
+text = "Check"
+
+[node name="NextButton" type="Button" parent="." unique_id=621090360]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -147.0
+offset_top = -80.0
+offset_right = -19.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ugr70")
+text = "Next"
+
+[node name="BackButton" type="Button" parent="." unique_id=752129754]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -80.0
+offset_right = 144.0
+offset_bottom = -16.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_54y20")
+text = "Back"
+
+[node name="RemoveBackgroundConfirm" type="ConfirmationDialog" parent="." unique_id=1096531032]
+oversampling_override = 1.0
+title = "Remove Background"
+initial_position = 1
+size = Vector2i(496, 200)
+ok_button_text = "Remove"
+dialog_text = "Doing this will remove the background. 
+Are you sure you want to remove it?
+You can add it back by going back to the previous page.
+"
+
+[node name="BackToBackgroundConfirmation" type="ConfirmationDialog" parent="." unique_id=329889022]
+oversampling_override = 1.0
+title = "Remove Background"
+initial_position = 1
+size = Vector2i(508, 200)
+ok_button_text = "Remove"
+dialog_text = "Removing all backgrounds will take you back to the background selection page. Are you sure you want to continue?"
+dialog_autowrap = true
+
+[connection signal="pressed" from="Control/PrintsContainer/Subtract" to="." method="_on_subtract_pressed"]
+[connection signal="pressed" from="Control/PrintsContainer/Add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="Control/EmailContainer/Subtract" to="." method="_on_email_subtract_pressed"]
+[connection signal="pressed" from="Control/EmailContainer/Add" to="." method="_on_email_add_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Cash" to="." method="_on_cash_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Debit" to="." method="_on_debit_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Credit" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Check" to="." method="_on_check_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+
+[editable path="Control/VBoxContainer/Cash"]
+[editable path="Control/VBoxContainer/Debit"]
+[editable path="Control/VBoxContainer/Credit"]
+[editable path="Control/VBoxContainer/Check"]

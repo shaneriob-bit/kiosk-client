@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://dmakmkaw5eic0"]
+
+[ext_resource type="Script" uid="uid://ok3vqoaamofh" path="res://_scripts/name_field.gd" id="1_fi0fk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi0fk"]
+bg_color = Color(0.33096692, 0.70016587, 0.22375292, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_628f1"]
+bg_color = Color(0.40108112, 0.38825008, 0.384142, 1)
+
+[node name="NameField" type="CanvasLayer" unique_id=1668960381 groups=["GroupListener"]]
+script = ExtResource("1_fi0fk")
+
+[node name="Label" type="Label" parent="." unique_id=1716568964]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = 16.0
+offset_right = 169.0
+offset_bottom = 61.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Customer Information"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1349878381]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -248.0
+offset_right = 234.0
+offset_bottom = 248.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+
+[node name="NameContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=349826079]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/NameContainer" unique_id=2030108704]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Enter a name for your order"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/NameContainer" unique_id=1939310457]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Name"
+
+[node name="EmailContainer" type="VBoxContainer" parent="VBoxContainer" unique_id=68881034]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/EmailContainer" unique_id=1711099595]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Enter emails to recieve photos"
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/EmailContainer" unique_id=945414985]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Email"
+
+[node name="LineEdit2" type="LineEdit" parent="VBoxContainer/EmailContainer" unique_id=525021181]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Email"
+
+[node name="LineEdit3" type="LineEdit" parent="VBoxContainer/EmailContainer" unique_id=1292288751]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Email"
+
+[node name="LineEdit4" type="LineEdit" parent="VBoxContainer/EmailContainer" unique_id=668547282]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Email"
+
+[node name="LineEdit5" type="LineEdit" parent="VBoxContainer/EmailContainer" unique_id=2097173221]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+placeholder_text = "Email"
+
+[node name="NextButton" type="Button" parent="." unique_id=1159790873]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -144.0
+offset_top = -80.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_fi0fk")
+text = "Next"
+
+[node name="BackButton" type="Button" parent="." unique_id=764502911]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1264.0
+offset_top = -80.0
+offset_right = -1136.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_628f1")
+text = "Back"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

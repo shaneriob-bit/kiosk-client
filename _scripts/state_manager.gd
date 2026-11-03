@@ -4,6 +4,8 @@ enum ProgramStates
 {
 	HOME,
 	BACKGROND,
+	PAYMENT,
+	NAME,
 }
 
 var currentProgramState = ProgramStates.HOME
@@ -12,6 +14,16 @@ var idle_timer : Timer
 var idle_alert = false
 
 var idle_screen : CanvasLayer
+
+var total_photos = 0
+
+var base_price = 9.99
+
+var email_count = 0
+
+var selected_backgrounds = [
+	
+]
 
 func _ready():
 	idle_timer = Timer.new()
@@ -29,6 +41,7 @@ func change_state(state):
 	
 	if state == ProgramStates.HOME:
 		# reset EVERYTHING
+		selected_backgrounds = []
 		get_tree().reload_current_scene()
 	else:
 		# we are no longer home, start the idle timer

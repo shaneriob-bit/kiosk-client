@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bqi3naxdk7mm5"]
+
+[node name="ConfirmationScreen" type="CanvasLayer" unique_id=435469620]
+
+[node name="ScreenLabel" type="Label" parent="." unique_id=456872215]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -160.0
+offset_top = 16.0
+offset_right = 167.0
+offset_bottom = 39.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Please confirm your information is correct"

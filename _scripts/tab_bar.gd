@@ -66,6 +66,7 @@ func _init() -> void:
 		var length_diff = longest_string_length - tab_text.length()
 		if length_diff > 0:
 			set_tab_title(i, tab_text + " ".repeat(length_diff))
+ 
 
 func get_ordered_names() -> Array:
 	return ordered_names

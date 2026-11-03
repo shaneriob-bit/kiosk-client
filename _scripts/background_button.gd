@@ -1,6 +1,11 @@
 extends TextureButton
 
-var count : int = 0
+@export var count : int = 0
+
+var original_parent : Node
+
+func _ready() -> void:
+	original_parent = get_parent()
 
 func _on_toggled(toggled_on: bool) -> void:
 	$Panel.visible = toggled_on
@@ -22,6 +27,8 @@ func _on_down_button_pressed() -> void:
 	if count > 1:
 		count -= 1
 		update_count_label()
+	else:
+		button_pressed = false
 
 func get_count():
 	return count
