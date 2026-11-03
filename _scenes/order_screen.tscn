@@ -3,9 +3,13 @@
 [ext_resource type="Script" uid="uid://ctbv8h2747qo4" path="res://_scripts/order_screen.gd" id="1_6xnw5"]
 [ext_resource type="Script" uid="uid://dw6tc6k2spww6" path="res://_scripts/background_selection.gd" id="1_cjxwk"]
 [ext_resource type="Script" uid="uid://3dryyos2k6uf" path="res://_scripts/tab_bar.gd" id="1_s2mde"]
+[ext_resource type="Theme" uid="uid://dcejjhkjk44cb" path="res://main_theme.tres" id="4_j6q0u"]
+[ext_resource type="Texture2D" uid="uid://vfq1dqoyl6pi" path="res://bg_2.bmp" id="5_mk51d"]
+[ext_resource type="PackedScene" uid="uid://clfr6l63pcnwo" path="res://_scenes/background_button.tscn" id="6_ot6jj"]
+[ext_resource type="Texture2D" uid="uid://blps55gspwenl" path="res://_sprites/CUSTOM.png" id="7_4posh"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvnrc"]
-bg_color = Color(0.33096692, 0.70016587, 0.22375292, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ud8lg"]
+bg_color = Color(0, 0, 0, 0.8352941)
 
 [node name="OrderScreen" type="Control" unique_id=1574650878]
 layout_mode = 3
@@ -27,17 +31,17 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -368.0
-offset_top = -434.0
+offset_top = -352.0
 offset_right = -12.0
-offset_bottom = 81.0
+offset_bottom = 163.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
-text = "Scroll to select a background
+text = "Find backgrounds on the left by scrolling or choosing a section. Press a background to select it.
 
-Select your desired amount of photos
+You will purchase a photo for each background you have selected.
 
-You purchase each photo that is taken"
+Use the buttons on the background while selected to purchase multiple photos with one background."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -51,9 +55,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -376.0
-offset_top = 88.0
+offset_top = 170.0
 offset_right = -20.0
-offset_bottom = 160.0
+offset_bottom = 242.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.99607843, 0.6156863, 1)
@@ -73,9 +77,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -376.0
-offset_top = 176.0
+offset_top = 258.0
 offset_right = -20.0
-offset_bottom = 248.0
+offset_bottom = 330.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 0.99607843, 0.6156863, 1)
@@ -86,7 +90,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="BackgroundSelection" type="ScrollContainer" parent="." unique_id=1131618317]
+[node name="BackgroundSelection" type="ScrollContainer" parent="." unique_id=1131618317 node_paths=PackedStringArray("preview_panel")]
 custom_minimum_size = Vector2(1280, 1024)
 custom_maximum_size = Vector2(920, 984)
 layout_mode = 0
@@ -95,6 +99,7 @@ offset_top = 42.0
 offset_right = 921.0
 offset_bottom = 1024.0
 script = ExtResource("1_cjxwk")
+preview_panel = NodePath("../PreviewPanel")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BackgroundSelection" unique_id=337036487]
 layout_mode = 2
@@ -119,8 +124,8 @@ offset_right = -122.0
 offset_bottom = -72.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("4_j6q0u")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_mvnrc")
 text = "Next"
 
 [node name="DisabledButtonInfo" type="Label" parent="." unique_id=223657350]
@@ -215,5 +220,158 @@ text = "Confirm"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="CustomBackgrounds" type="Button" parent="." unique_id=2023025089]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -312.0
+offset_top = 64.0
+offset_right = -60.0
+offset_bottom = 104.0
+grow_horizontal = 0
+theme = ExtResource("4_j6q0u")
+theme_override_font_sizes/font_size = 24
+text = "Custom Backgrounds"
+
+[node name="PreviewPanel" type="Panel" parent="." unique_id=1445950997]
+visible = false
+custom_minimum_size = Vector2(1024, 800)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ud8lg")
+
+[node name="TextureRect" type="TextureRect" parent="PreviewPanel" unique_id=259048797]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -378.0
+offset_top = -325.0
+offset_right = 378.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_mk51d")
+
+[node name="Label" type="Label" parent="PreviewPanel" unique_id=1358993180]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 64.0
+offset_right = 66.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Background Preview"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitPreview" type="Button" parent="PreviewPanel" unique_id=389775450]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -136.0
+offset_right = 64.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_j6q0u")
+theme_override_font_sizes/font_size = 32
+text = "Exit Preview"
+
+[node name="CustomBackgroundPanel" type="Panel" parent="." unique_id=1728306702]
+visible = false
+custom_minimum_size = Vector2(1024, 800)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ud8lg")
+
+[node name="Label" type="Label" parent="CustomBackgroundPanel" unique_id=576210738]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_top = 24.0
+offset_right = 252.0
+offset_bottom = 91.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Custom Backgrounds"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instructions" type="Label" parent="CustomBackgroundPanel" unique_id=920555999]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_top = 96.0
+offset_right = 260.0
+offset_bottom = 611.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "You can use this to come up with your own background to use!
+You can either choose a picture from the internet or give us one of your own!
+
+(This option is a $5 upcharge since we have to reprogram our software with the image you choose.)
+
+To get started, just click on the custom background to select it, just like any other background! (You may only choose one custom background that you can take multiple photos with)."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ExitCustomBackground" type="Button" parent="CustomBackgroundPanel" unique_id=376923953]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -136.0
+offset_right = 64.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_j6q0u")
+theme_override_font_sizes/font_size = 32
+text = "Back to Selection"
+
+[node name="CustomBackground" parent="CustomBackgroundPanel" unique_id=1243590624 instance=ExtResource("6_ot6jj")]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 616.0
+offset_right = 794.0
+offset_bottom = 860.0
+texture_normal = ExtResource("7_4posh")
+
+[node name="PreviewButton" parent="CustomBackgroundPanel/CustomBackground/Panel" parent_id_path=PackedInt32Array(1243590624, 992350221) index="2" unique_id=616375214]
+visible = false
+
 [connection signal="tab_changed" from="TabBar" to="BackgroundSelection" method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="CustomBackgrounds" to="." method="_on_custom_backgrounds_pressed"]
+[connection signal="pressed" from="PreviewPanel/ExitPreview" to="." method="_on_exit_preview_pressed"]
+[connection signal="pressed" from="CustomBackgroundPanel/ExitCustomBackground" to="." method="_on_exit_custom_background_pressed"]
+
+[editable path="CustomBackgroundPanel/CustomBackground"]

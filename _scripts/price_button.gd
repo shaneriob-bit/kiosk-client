@@ -2,6 +2,7 @@ extends Panel
 
 @export var toggle_mode : bool = false
 @export var button_pressed : bool = false
+@export var disabled : bool = false
 
 signal pressed
 
@@ -13,6 +14,8 @@ func _on_button_pressed() -> void:
 
 func change_border(toggled : bool):
 	if toggled == true:
+		$Button.disabled = true
+		
 		# 1. Get the existing StyleBox from the Panel's theme overrides
 		var current_stylebox = get_theme_stylebox("panel")
 		
@@ -29,6 +32,7 @@ func change_border(toggled : bool):
 			# 4. Apply the modified unique StyleBox back to the panel
 			add_theme_stylebox_override("panel", unique_stylebox)
 	else:
+		$Button.disabled = false
 		# 1. Get the existing StyleBox from the Panel's theme overrides
 		var current_stylebox = get_theme_stylebox("panel")
 		

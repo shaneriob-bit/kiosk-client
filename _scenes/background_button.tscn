@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://clfr6l63pcnwo"]
 
 [ext_resource type="Texture2D" uid="uid://vfq1dqoyl6pi" path="res://bg_2.bmp" id="1_3letw"]
-[ext_resource type="StyleBox" uid="uid://c5fkh0johtvoq" path="res://_themes/background_selection_button.tres" id="2_gb8ou"]
 [ext_resource type="Script" uid="uid://bmjcdsptvnuat" path="res://_scripts/background_button.gd" id="2_p0a6t"]
+[ext_resource type="Theme" uid="uid://dcejjhkjk44cb" path="res://main_theme.tres" id="3_p0a6t"]
+[ext_resource type="Texture2D" uid="uid://br4oavge2k6rh" path="res://_sprites/fullscreen.png" id="4_0thvs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4k5x"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -40,13 +41,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -46.999985
-offset_top = -118.00001
-offset_right = -17.0
-offset_bottom = -11.0
+offset_left = -52.0
+offset_top = -128.0
+offset_right = -22.0
+offset_bottom = -21.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(1.321965, 1.0399821)
+scale = Vector2(1.48196, 1.1199821)
 
 [node name="UpButton" type="Button" parent="Panel" unique_id=135818572]
 layout_mode = 1
@@ -55,15 +56,31 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -42.0
-offset_top = -116.0
-offset_right = -12.0
-offset_bottom = -71.0
+offset_left = -45.000015
+offset_top = -122.0
+offset_right = -15.0
+offset_bottom = -77.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = ExtResource("2_gb8ou")
+theme = ExtResource("3_p0a6t")
 text = "+"
+
+[node name="PreviewButton" type="Button" parent="Panel" unique_id=616375214]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -269.0
+offset_top = -58.0
+offset_right = -238.99998
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("3_p0a6t")
+icon = ExtResource("4_0thvs")
+expand_icon = true
 
 [node name="DownButton" type="Button" parent="Panel" unique_id=1121233537]
 layout_mode = 1
@@ -72,14 +89,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -42.0
-offset_top = -54.0
-offset_right = -12.0
-offset_bottom = -9.0
+offset_left = -45.000015
+offset_top = -60.0
+offset_right = -15.0
+offset_bottom = -15.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_styles/normal = ExtResource("2_gb8ou")
+theme = ExtResource("3_p0a6t")
 text = "-"
 
 [node name="Count" type="Label" parent="Panel" unique_id=856050378]
@@ -89,10 +105,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -35.0
-offset_top = -75.0
-offset_right = -18.0
-offset_bottom = -52.0
+offset_left = -38.000015
+offset_top = -81.0
+offset_right = -21.0
+offset_bottom = -58.0
 grow_horizontal = 0
 grow_vertical = 0
 text = "0"
@@ -101,4 +117,5 @@ vertical_alignment = 1
 
 [connection signal="toggled" from="." to="." method="_on_toggled"]
 [connection signal="pressed" from="Panel/UpButton" to="." method="_on_up_button_pressed"]
+[connection signal="pressed" from="Panel/PreviewButton" to="." method="_on_preview_button_pressed"]
 [connection signal="pressed" from="Panel/DownButton" to="." method="_on_down_button_pressed"]

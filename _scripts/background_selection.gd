@@ -2,6 +2,8 @@ extends ScrollContainer
 
 var background_selection_button_scene = preload("res://_scenes/background_button.tscn")
 
+@export var preview_panel : Node
+
 @onready var tab_bar : TabBar = $"../TabBar"
 
 # Flag to prevent infinite loops between scrolling and tab changing
@@ -80,11 +82,18 @@ func _ready() -> void:
 					texture_button.texture_normal = texture_img
 					grid_container.add_child(texture_button)
 					texture_button.name = next_image
+					
+					texture_button.connect("preview", show_preview)
 				
 				next_image = section_images.get_next()
 			section_images.list_dir_end()
 			
 	update_scroll_container_width()
+	
+func show_preview(butt : Node):
+	if StateManager.currentProgramState == StateManager.ProgramStates.BACKGROND:
+		preview_panel.get_node("TextureRect").texture = butt.texture_normal
+		preview_panel.show()
 
 func _on_scroll_changed(scroll_value: float) -> void:
 	if _is_syncing:

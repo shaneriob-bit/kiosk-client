@@ -1,12 +1,7 @@
 [gd_scene format=3 uid="uid://dmakmkaw5eic0"]
 
 [ext_resource type="Script" uid="uid://ok3vqoaamofh" path="res://_scripts/name_field.gd" id="1_fi0fk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi0fk"]
-bg_color = Color(0.33096692, 0.70016587, 0.22375292, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_628f1"]
-bg_color = Color(0.40108112, 0.38825008, 0.384142, 1)
+[ext_resource type="Theme" uid="uid://dcejjhkjk44cb" path="res://main_theme.tres" id="2_628f1"]
 
 [node name="NameField" type="CanvasLayer" unique_id=1668960381 groups=["GroupListener"]]
 script = ExtResource("1_fi0fk")
@@ -101,8 +96,8 @@ offset_right = -16.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("2_628f1")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_fi0fk")
 text = "Next"
 
 [node name="BackButton" type="Button" parent="." unique_id=764502911]
@@ -117,8 +112,8 @@ offset_right = -1136.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("2_628f1")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_628f1")
 text = "Back"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

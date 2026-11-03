@@ -2,14 +2,13 @@
 
 [ext_resource type="Script" uid="uid://f20y161nf1h1" path="res://_scripts/payment_screen.gd" id="1_ugr70"]
 [ext_resource type="PackedScene" uid="uid://bd2ytt3cf1n6u" path="res://_scenes/price_button.tscn" id="2_54y20"]
+[ext_resource type="Theme" uid="uid://dcejjhkjk44cb" path="res://main_theme.tres" id="2_xyjts"]
 [ext_resource type="Texture2D" uid="uid://ba36kiauos024" path="res://_sprites/money.png" id="3_laopo"]
 [ext_resource type="Texture2D" uid="uid://ygh8rs63pnyt" path="res://_sprites/cheque.png" id="4_xyjts"]
+[ext_resource type="Texture2D" uid="uid://vfq1dqoyl6pi" path="res://bg_2.bmp" id="6_vs287"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugr70"]
-bg_color = Color(0.33096692, 0.70016587, 0.22375292, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54y20"]
-bg_color = Color(0.40108112, 0.38825008, 0.384142, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kto0p"]
+bg_color = Color(0, 0, 0, 0.8352941)
 
 [node name="PaymentScreen" type="CanvasLayer" unique_id=1685520577]
 script = ExtResource("1_ugr70")
@@ -49,7 +48,7 @@ offset_bottom = -320.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "Prints"
+text = "Printed Copies"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -88,6 +87,7 @@ grow_vertical = 2
 [node name="Subtract" type="Button" parent="Control/PrintsContainer" unique_id=118329233]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+theme = ExtResource("2_xyjts")
 theme_override_font_sizes/font_size = 64
 text = "-"
 
@@ -103,6 +103,7 @@ offset_top = -23.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "- $9.99"
 vertical_alignment = 2
@@ -119,6 +120,7 @@ clip_text = true
 [node name="Add" type="Button" parent="Control/PrintsContainer" unique_id=1172231009]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+theme = ExtResource("2_xyjts")
 theme_override_font_sizes/font_size = 64
 text = "+"
 
@@ -134,6 +136,7 @@ offset_top = -23.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "+ $9.99"
 vertical_alignment = 2
@@ -155,6 +158,7 @@ grow_vertical = 0
 [node name="Subtract" type="Button" parent="Control/EmailContainer" unique_id=755819423]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+theme = ExtResource("2_xyjts")
 theme_override_font_sizes/font_size = 64
 text = "-"
 
@@ -170,6 +174,7 @@ offset_top = -23.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "- $9.99"
 vertical_alignment = 2
@@ -186,6 +191,7 @@ clip_text = true
 [node name="Add" type="Button" parent="Control/EmailContainer" unique_id=122427876]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
+theme = ExtResource("2_xyjts")
 theme_override_font_sizes/font_size = 64
 text = "+"
 
@@ -201,6 +207,7 @@ offset_top = -23.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
 text = "+ $9.99"
 vertical_alignment = 2
@@ -212,15 +219,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -172.0
-offset_top = 96.0
-offset_right = 174.0
-offset_bottom = 285.0
+offset_left = -184.0
+offset_top = 210.0
+offset_right = 231.0
+offset_bottom = 399.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/line_spacing = 12
 theme_override_font_sizes/font_size = 32
-text = "Prints (x6): 99.99
-Emails (x5): 99.99
+text = "Printed Copies (x6): 99.99
+Email Addresses (x5): 99.99
 Multiplied by # photos
 Total: $99.99"
 horizontal_alignment = 1
@@ -243,89 +251,96 @@ horizontal_scroll_mode = 0
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/BackgroundsContainer" unique_id=1311609718]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=2123321844]
+[node name="PaymentMethodContainer" type="VBoxContainer" parent="Control" unique_id=2123321844]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -248.0
-offset_top = -374.0
-offset_right = -48.0
-offset_bottom = 258.0
+offset_left = -224.0
+offset_top = -481.0
+offset_right = -24.0
+offset_bottom = 417.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="Cash" parent="Control/VBoxContainer" unique_id=246564266 instance=ExtResource("2_54y20")]
+[node name="PaymentTitle" type="Label" parent="Control/PaymentMethodContainer" unique_id=2063715597]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Payment Method"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Cash" parent="Control/PaymentMethodContainer" unique_id=246564266 instance=ExtResource("2_54y20")]
 custom_minimum_size = Vector2(200, 200)
 custom_maximum_size = Vector2(200, 200)
 layout_mode = 2
 toggle_mode = true
 
-[node name="Icon" parent="Control/VBoxContainer/Cash" index="0" unique_id=72733981]
+[node name="Icon" parent="Control/PaymentMethodContainer/Cash" index="0" unique_id=72733981]
 offset_left = -40.0
 offset_top = -62.0
 offset_right = 34.0
 offset_bottom = 12.0
 texture = ExtResource("3_laopo")
 
-[node name="CopyCount" parent="Control/VBoxContainer/Cash" index="1" unique_id=1763384076]
+[node name="CopyCount" parent="Control/PaymentMethodContainer/Cash" index="1" unique_id=1763384076]
 offset_top = 18.0
 offset_bottom = 49.0
 theme_override_font_sizes/font_size = 22
 text = "Cash"
 
-[node name="Debit" parent="Control/VBoxContainer" unique_id=1930924172 instance=ExtResource("2_54y20")]
+[node name="Debit" parent="Control/PaymentMethodContainer" unique_id=1930924172 instance=ExtResource("2_54y20")]
 custom_minimum_size = Vector2(200, 200)
 custom_maximum_size = Vector2(200, 200)
 layout_mode = 2
 toggle_mode = true
 
-[node name="Icon" parent="Control/VBoxContainer/Debit" index="0" unique_id=72733981]
+[node name="Icon" parent="Control/PaymentMethodContainer/Debit" index="0" unique_id=72733981]
 offset_left = -40.0
 offset_top = -62.0
 offset_right = 34.0
 offset_bottom = 12.0
 
-[node name="CopyCount" parent="Control/VBoxContainer/Debit" index="1" unique_id=1763384076]
+[node name="CopyCount" parent="Control/PaymentMethodContainer/Debit" index="1" unique_id=1763384076]
 offset_top = 18.0
 offset_bottom = 49.0
 theme_override_font_sizes/font_size = 22
 text = "Debit"
 
-[node name="Credit" parent="Control/VBoxContainer" unique_id=1974864054 instance=ExtResource("2_54y20")]
+[node name="Credit" parent="Control/PaymentMethodContainer" unique_id=1974864054 instance=ExtResource("2_54y20")]
 custom_minimum_size = Vector2(200, 200)
 custom_maximum_size = Vector2(200, 200)
 layout_mode = 2
 toggle_mode = true
 
-[node name="Icon" parent="Control/VBoxContainer/Credit" index="0" unique_id=72733981]
+[node name="Icon" parent="Control/PaymentMethodContainer/Credit" index="0" unique_id=72733981]
 offset_left = -40.0
 offset_top = -62.0
 offset_right = 34.0
 offset_bottom = 12.0
 
-[node name="CopyCount" parent="Control/VBoxContainer/Credit" index="1" unique_id=1763384076]
+[node name="CopyCount" parent="Control/PaymentMethodContainer/Credit" index="1" unique_id=1763384076]
 offset_top = 18.0
 offset_bottom = 49.0
 theme_override_font_sizes/font_size = 22
 
-[node name="Check" parent="Control/VBoxContainer" unique_id=215290666 instance=ExtResource("2_54y20")]
+[node name="Check" parent="Control/PaymentMethodContainer" unique_id=215290666 instance=ExtResource("2_54y20")]
 custom_minimum_size = Vector2(200, 200)
 custom_maximum_size = Vector2(200, 200)
 layout_mode = 2
 toggle_mode = true
 
-[node name="Icon" parent="Control/VBoxContainer/Check" index="0" unique_id=72733981]
+[node name="Icon" parent="Control/PaymentMethodContainer/Check" index="0" unique_id=72733981]
 offset_left = -40.0
 offset_top = -62.0
 offset_right = 34.0
 offset_bottom = 12.0
 texture = ExtResource("4_xyjts")
 
-[node name="CopyCount" parent="Control/VBoxContainer/Check" index="1" unique_id=1763384076]
+[node name="CopyCount" parent="Control/PaymentMethodContainer/Check" index="1" unique_id=1763384076]
 offset_top = 18.0
 offset_bottom = 49.0
 theme_override_font_sizes/font_size = 22
@@ -337,15 +352,33 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -147.0
+offset_left = -152.0
 offset_top = -80.0
-offset_right = -19.0
+offset_right = -24.0
 offset_bottom = -16.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("2_xyjts")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_ugr70")
 text = "Next"
+
+[node name="ButtonDisabledInfo" type="Label" parent="." unique_id=941264199]
+custom_maximum_size = Vector2(230, 90)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -80.0
+offset_right = 6.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Select at least one print or email copy & a payment method to continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="BackButton" type="Button" parent="." unique_id=752129754]
 anchors_preset = 2
@@ -356,8 +389,8 @@ offset_top = -80.0
 offset_right = 144.0
 offset_bottom = -16.0
 grow_vertical = 0
+theme = ExtResource("2_xyjts")
 theme_override_font_sizes/font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxFlat_54y20")
 text = "Back"
 
 [node name="RemoveBackgroundConfirm" type="ConfirmationDialog" parent="." unique_id=1096531032]
@@ -380,18 +413,76 @@ ok_button_text = "Remove"
 dialog_text = "Removing all backgrounds will take you back to the background selection page. Are you sure you want to continue?"
 dialog_autowrap = true
 
+[node name="PreviewPanel" type="Panel" parent="." unique_id=246008952]
+visible = false
+custom_minimum_size = Vector2(1024, 800)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kto0p")
+
+[node name="TextureRect" type="TextureRect" parent="PreviewPanel" unique_id=1425789755]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -378.0
+offset_top = -325.0
+offset_right = 378.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_vs287")
+
+[node name="Label" type="Label" parent="PreviewPanel" unique_id=768121701]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.0
+offset_top = 64.0
+offset_right = 66.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Background Preview"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitPreview" type="Button" parent="PreviewPanel" unique_id=1259853655]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -136.0
+offset_right = 64.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_xyjts")
+theme_override_font_sizes/font_size = 32
+text = "Exit Preview"
+
 [connection signal="pressed" from="Control/PrintsContainer/Subtract" to="." method="_on_subtract_pressed"]
 [connection signal="pressed" from="Control/PrintsContainer/Add" to="." method="_on_add_pressed"]
 [connection signal="pressed" from="Control/EmailContainer/Subtract" to="." method="_on_email_subtract_pressed"]
 [connection signal="pressed" from="Control/EmailContainer/Add" to="." method="_on_email_add_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Cash" to="." method="_on_cash_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Debit" to="." method="_on_debit_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Credit" to="." method="_on_credit_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Check" to="." method="_on_check_pressed"]
+[connection signal="pressed" from="Control/PaymentMethodContainer/Cash" to="." method="_on_cash_pressed"]
+[connection signal="pressed" from="Control/PaymentMethodContainer/Debit" to="." method="_on_debit_pressed"]
+[connection signal="pressed" from="Control/PaymentMethodContainer/Credit" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="Control/PaymentMethodContainer/Check" to="." method="_on_check_pressed"]
 [connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="PreviewPanel/ExitPreview" to="." method="_on_exit_preview_pressed"]
 
-[editable path="Control/VBoxContainer/Cash"]
-[editable path="Control/VBoxContainer/Debit"]
-[editable path="Control/VBoxContainer/Credit"]
-[editable path="Control/VBoxContainer/Check"]
+[editable path="Control/PaymentMethodContainer/Cash"]
+[editable path="Control/PaymentMethodContainer/Debit"]
+[editable path="Control/PaymentMethodContainer/Credit"]
+[editable path="Control/PaymentMethodContainer/Check"]

@@ -79,11 +79,27 @@ func get_email_total():
 	return total
 
 func update_total_labels():
-	$Control/TotalsLabel.text = "Prints (x" + str(prints_count) + "): $%.2f" % get_print_total()
-	$Control/TotalsLabel.text += "\nEmails (x" + str(emails_count) + "): $%.2f" % get_email_total()
+	$Control/TotalsLabel.text = "Printed Copies (x" + str(prints_count) + "): $%.2f" % get_print_total()
+	$Control/TotalsLabel.text += "\nEmail Addresses (x" + str(emails_count) + "): $%.2f" % get_email_total()
 	$Control/TotalsLabel.text += "\nBase price per photo: $%.2f" % StateManager.base_price
 	$Control/TotalsLabel.text += "\nMultiplied by " + str(photo_count) + " photos"
-	$Control/TotalsLabel.text += "\nTotal: $%.2f" % ((get_print_total() + get_email_total()) * photo_count + (StateManager.base_price * photo_count))
+	
+	var custom_button = $Control/BackgroundsContainer/VBoxContainer.get_node_or_null("CustomBackground")
+	var total = ((get_print_total() + get_email_total()) * photo_count + (StateManager.base_price * photo_count))
+	
+	if custom_button != null:
+		if custom_button.count > 0:
+			$Control/TotalsLabel.text += "\nCustom Background + $5"
+			total += 5
+	
+	$Control/TotalsLabel.text += "\nTotal: $%.2f" % total
+	
+	if (emails_count > 0 or prints_count > 0) and StateManager.payment_method != null:
+		$NextButton.show()
+		$ButtonDisabledInfo.hide()
+	else:
+		$NextButton.hide()
+		$ButtonDisabledInfo.show()
 
 func _on_subtract_pressed() -> void:
 	if prints_count > 0:
@@ -141,17 +157,27 @@ func _state_changed(state):
 			child.disabled = true
 			child.get_node("Panel").position += Vector2()
 			child.reparent($Control/BackgroundsContainer/VBoxContainer)
+			if !child.is_connected("preview", show_preview):
+				child.connect("preview", show_preview)
 		show()
 	elif state == StateManager.ProgramStates.BACKGROND:
 		# go back to background
 		for child : TextureButton in $Control/BackgroundsContainer/VBoxContainer.get_children():
+			child.disconnect("preview", show_preview)
 			child.disabled = false
 			child.reparent(child.original_parent)
+			child.position = Vector2(512, 616) # stupid hack for custom
 			child.show()
 		hide()
 	else:
 		hide()
+		
+@onready var preview_panel = $PreviewPanel
 
+func show_preview(butt : Node):
+	if StateManager.currentProgramState == StateManager.ProgramStates.PAYMENT:
+		preview_panel.get_node("TextureRect").texture = butt.texture_normal
+		preview_panel.show()
 
 func _process(_delta: float) -> void:
 	if StateManager.currentProgramState == StateManager.ProgramStates.PAYMENT:
@@ -190,27 +216,25 @@ func _unhandled_input(event: InputEvent) -> void:
 					$BackToBackgroundConfirmation.show()
 					
 func there_can_only_be_one_payment_method(button : Node):
+	StateManager.payment_method = button.name
 	for child in button.get_parent().get_children():
-		if child != button and child.button_pressed == true:
-			child._on_button_pressed()
-			
+		if child is Panel:
+			if child != button and child.button_pressed == true:
+				child._on_button_pressed()
+	
+	update_total_labels()
+
 func _on_cash_pressed() -> void:
-	there_can_only_be_one_payment_method($Control/VBoxContainer/Cash)
+	there_can_only_be_one_payment_method($Control/PaymentMethodContainer/Cash)
 	
 func _on_credit_pressed() -> void:
-	there_can_only_be_one_payment_method($Control/VBoxContainer/Credit)
+	there_can_only_be_one_payment_method($Control/PaymentMethodContainer/Credit)
 
 func _on_debit_pressed() -> void:
-	there_can_only_be_one_payment_method($Control/VBoxContainer/Debit)
+	there_can_only_be_one_payment_method($Control/PaymentMethodContainer/Debit)
 
 func _on_check_pressed() -> void:
-	there_can_only_be_one_payment_method($Control/VBoxContainer/Check)
+	there_can_only_be_one_payment_method($Control/PaymentMethodContainer/Check)
 	
-	
-	
-	
-	
-
-
-func _on_button_pressed() -> void:
-	pass # Replace with function body.
+func _on_exit_preview_pressed() -> void:
+	$PreviewPanel.hide()

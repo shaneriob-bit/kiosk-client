@@ -21,13 +21,15 @@ var base_price = 9.99
 
 var email_count = 0
 
+var payment_method : String
+
 var selected_backgrounds = [
 	
 ]
 
 func _ready():
 	idle_timer = Timer.new()
-	self.add_to_group("StateListener")
+	self.add_to_group("GroupListener")
 	
 	add_child(idle_timer)
 	idle_timer.timeout.connect(_on_idle_timer_timeout)

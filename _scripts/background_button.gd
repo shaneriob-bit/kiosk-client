@@ -4,6 +4,8 @@ extends TextureButton
 
 var original_parent : Node
 
+signal preview(butt : Node)
+
 func _ready() -> void:
 	original_parent = get_parent()
 
@@ -32,3 +34,6 @@ func _on_down_button_pressed() -> void:
 
 func get_count():
 	return count
+	
+func _on_preview_button_pressed() -> void:
+	preview.emit(self)

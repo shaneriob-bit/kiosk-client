@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://bag23c1vli6yq" path="res://_scripts/idle_screen.gd" id="1_ncu35"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54y20"]
-bg_color = Color(0.1764706, 0.1764706, 0.1764706, 1)
+bg_color = Color(0.20871031, 0.20871007, 0.2087102, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
 
 [node name="IdleScreen" type="CanvasLayer" unique_id=1040489430]
 script = ExtResource("1_ncu35")
