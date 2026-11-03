@@ -16,15 +16,29 @@ func _state_changed(state):
 		for i in range (0, StateManager.email_count):
 			email_fields[i].text = StateManager.emails[i]
 			email_fields[i].show()
-			
-		$PrintedCopiesCount
+		
+		$NameLabel.text = "Order Name: " + StateManager.customer_name
+		
+		$PrintedCopiesCount.text = "Print Copies: " + str(StateManager.print_count)
+		$PaymentMethod.text = "Payment Method: " + StateManager.payment_method
+		$TotalCost.text = "Total Cost: $%.2f"  % StateManager.total_cost
+		
+		add_child(StateManager.copied_background_list)
+		
+		for child in StateManager.copied_background_list.get_node("VBoxContainer").get_children():
+			child.disabled = true
+			child.get_node("Panel").hide()
 		
 		show()
 	else:
+		if visible:
+			if StateManager.copied_background_list != null:
+				StateManager.copied_background_list.queue_free()
+		
 		hide()
 
 func _on_next_button_pressed() -> void:
-	pass # Replace with function body.
+	StateManager.change_state(StateManager.ProgramStates.RECEIPT)
 
 func _on_back_button_pressed() -> void:
 	StateManager.change_state(StateManager.ProgramStates.NAME)

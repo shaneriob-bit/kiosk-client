@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://crrm7w13hqhqj"]
+
+[ext_resource type="Texture2D" uid="uid://b5ptqssvigk7l" path="res://_sprites/reciept.jpg" id="1_r5mf1"]
+[ext_resource type="Script" uid="uid://chyc0wxntbump" path="res://_scripts/receipt_screen.gd" id="1_twixf"]
+[ext_resource type="Theme" uid="uid://dcejjhkjk44cb" path="res://main_theme.tres" id="2_jqgkp"]
+[ext_resource type="Texture2D" uid="uid://dnj3y8mf5v8ss" path="res://_sprites/lucas_von_hollen.jpg" id="3_ndcsv"]
+
+[node name="ReceiptScreen" type="CanvasLayer" unique_id=1461284293 groups=["GroupListener"]]
+script = ExtResource("1_twixf")
+
+[node name="RecieptPrinting" type="Control" parent="." unique_id=163539400]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="RecieptPrinting" unique_id=1568425680]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.0
+offset_top = 16.0
+offset_right = 147.0
+offset_bottom = 61.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "RECEIPT PRINTING"
+
+[node name="Instructions" type="Label" parent="RecieptPrinting" unique_id=1905786766]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = 144.0
+offset_right = 346.0
+offset_bottom = 285.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "Your reciept is printing.
+Once it is done printing and you are holding it
+press the button below."
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="RecieptPrinting" unique_id=296002247]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -216.0
+offset_top = -384.0
+offset_right = 220.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_r5mf1")
+
+[node name="Button" type="Button" parent="RecieptPrinting" unique_id=1523918651]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -172.5
+offset_top = -212.0
+offset_right = 177.5
+offset_bottom = -161.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_jqgkp")
+theme_override_font_sizes/font_size = 32
+text = "I'm holding my reciept"
+
+[node name="Instructions" type="Control" parent="." unique_id=189834273]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Instructions" unique_id=116855183]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -815.0
+offset_top = -407.5
+offset_bottom = 407.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("3_ndcsv")
+
+[node name="Label" type="Label" parent="Instructions" unique_id=1238466795]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 136.0
+offset_right = 399.0
+offset_bottom = 203.0
+theme_override_font_sizes/font_size = 48
+text = "You're All Done!"
+
+[node name="Instructions" type="Label" parent="Instructions" unique_id=180878297]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 256.0
+offset_right = 399.0
+offset_bottom = 323.0
+theme_override_font_sizes/font_size = 32
+text = "Take your reciept to this
+guy so he can take
+your picture and have
+you on your way."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Instructions2" type="Label" parent="Instructions" unique_id=1082753857]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 576.0
+offset_right = 399.0
+offset_bottom = 765.0
+theme_override_font_sizes/font_size = 32
+text = "Starting over in
+10 second(s)."
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -29,6 +29,8 @@ func _state_changed(state):
 func update_count_label():
 	var total_count = 0
 	
+	StateManager.total_photos = total_count
+	
 	var texture_buttons = []
 	
 	for child in $BackgroundSelection/VBoxContainer.get_children():
@@ -51,7 +53,7 @@ func update_count_label():
 	
 	$PhotoCost.text = "$%.2f" % (StateManager.base_price * total_count)
 	
-	StateManager.total_photos = total_count
+	
 	
 func _process(_delta: float) -> void:
 	# this is a massive waste of CPU cycles but we are in a rush here

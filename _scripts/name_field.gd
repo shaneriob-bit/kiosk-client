@@ -29,6 +29,7 @@ func _state_changed(state):
 			for child in email_fields:
 				if child.visible == true:
 					StateManager.emails.append(child.text)
+			StateManager.customer_name = $VBoxContainer/NameContainer/LineEdit.text
 		
 		hide()
 

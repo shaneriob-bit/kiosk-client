@@ -6,7 +6,8 @@ enum ProgramStates
 	BACKGROND,
 	PAYMENT,
 	NAME,
-	CONFIRMATION
+	CONFIRMATION,
+	RECEIPT
 }
 
 var currentProgramState = ProgramStates.HOME
@@ -25,6 +26,8 @@ var email_count = 0
 
 var total_cost = 0
 
+var copied_background_list : Node
+
 var emails = [
 	
 ]
@@ -34,6 +37,8 @@ var payment_method = null
 var selected_backgrounds = [
 	
 ]
+
+var customer_name : String
 
 func _ready():
 	idle_timer = Timer.new()

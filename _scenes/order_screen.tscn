@@ -120,10 +120,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -250.0
-offset_top = -136.0
-offset_right = -122.0
-offset_bottom = -72.0
+offset_left = -262.0
+offset_top = -91.0
+offset_right = -134.0
+offset_bottom = -27.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("4_j6q0u")
@@ -337,7 +337,7 @@ You can either choose a picture from the internet or give us one of your own!
 
 (This option is a $5 upcharge since we have to reprogram our software with the image you choose.)
 
-To get started, just click on the custom background to select it, just like any other background! (You may only choose one custom background that you can take multiple photos with)."
+To get started, just press on the custom background to select it, just like any other background! (You may only choose one custom background that you can take multiple photos with)."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
