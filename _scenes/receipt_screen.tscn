@@ -29,6 +29,19 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "RECEIPT PRINTING"
 
+[node name="Label2" type="Label" parent="RecieptPrinting" unique_id=998967320]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = 72.0
+offset_right = 157.0
+offset_bottom = 117.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Order Number 1657"
+
 [node name="Instructions" type="Label" parent="RecieptPrinting" unique_id=1905786766]
 layout_mode = 1
 anchors_preset = 8
