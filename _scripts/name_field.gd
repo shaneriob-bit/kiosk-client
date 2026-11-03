@@ -24,7 +24,34 @@ func _state_changed(state):
 		
 		show()
 	else:
+		if visible:
+			StateManager.emails = []
+			for child in email_fields:
+				if child.visible == true:
+					StateManager.emails.append(child.text)
+		
 		hide()
 
 func _on_back_button_pressed() -> void:
 	StateManager.change_state(StateManager.ProgramStates.PAYMENT)
+	
+func _on_next_button_pressed() -> void:
+	StateManager.change_state(StateManager.ProgramStates.CONFIRMATION)
+	
+func _process(_delta: float) -> void:
+	var box_empty = false
+	
+	for child in email_fields:
+		if child.visible == true:
+			if child.text == "":
+				box_empty = true
+	
+	if $VBoxContainer/NameContainer/Label.text == "":
+		box_empty = true
+		
+	if box_empty == true:
+		$NextButton.hide()
+		$ButtonDisabledInfo.show()
+	else:
+		$NextButton.show()
+		$ButtonDisabledInfo.hide()

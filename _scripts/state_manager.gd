@@ -6,6 +6,7 @@ enum ProgramStates
 	BACKGROND,
 	PAYMENT,
 	NAME,
+	CONFIRMATION
 }
 
 var currentProgramState = ProgramStates.HOME
@@ -19,9 +20,16 @@ var total_photos = 0
 
 var base_price = 9.99
 
+var print_count = 0
 var email_count = 0
 
-var payment_method : String
+var total_cost = 0
+
+var emails = [
+	
+]
+
+var payment_method = null
 
 var selected_backgrounds = [
 	

@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cv2fb28amypr8" path="res://_scenes/idle_screen.tscn" id="6_ce27d"]
 [ext_resource type="PackedScene" uid="uid://d3ouhxciwlerq" path="res://_scenes/payment_screen.tscn" id="7_urak4"]
 [ext_resource type="PackedScene" uid="uid://dmakmkaw5eic0" path="res://_scenes/name_field.tscn" id="8_hi6yo"]
+[ext_resource type="PackedScene" uid="uid://bqi3naxdk7mm5" path="res://_scenes/confirmation_screen.tscn" id="8_owtmn"]
 
-[node name="Main" type="Node2D" unique_id=1640866435]
+[node name="Main" type="Node2D" unique_id=1640866435 groups=["GroupListener"]]
 
 [node name="HomeScreen" type="Node2D" parent="." unique_id=787528761 groups=["GroupListener"]]
 script = ExtResource("1_6bnj4")
@@ -25,10 +26,10 @@ script = ExtResource("1_x6rnu")
 position = Vector2(640, 512)
 texture = ExtResource("2_3q5j6")
 
-[node name="OrderScreenLayer" type="CanvasLayer" parent="." unique_id=478058512]
+[node name="OrderScreenLayer" type="CanvasLayer" parent="." unique_id=478058512 groups=["GroupListener"]]
 visible = false
 
-[node name="OrderScreen" parent="OrderScreenLayer" unique_id=1574650878 groups=["GroupListener"] instance=ExtResource("4_lavtb")]
+[node name="OrderScreen" parent="OrderScreenLayer" unique_id=1574650878 instance=ExtResource("4_lavtb")]
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -38,5 +39,8 @@ visible = false
 [node name="NameField" parent="." unique_id=1668960381 instance=ExtResource("8_hi6yo")]
 visible = false
 
-[node name="IdleScreen" parent="." unique_id=1040489430 instance=ExtResource("6_ce27d")]
+[node name="ConfirmationScreen" parent="." unique_id=435469620 instance=ExtResource("8_owtmn")]
+visible = false
+
+[node name="IdleScreen" parent="." unique_id=1040489430 groups=["GroupListener"] instance=ExtResource("6_ce27d")]
 visible = false

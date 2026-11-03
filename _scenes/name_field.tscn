@@ -116,4 +116,20 @@ theme = ExtResource("2_628f1")
 theme_override_font_sizes/font_size = 32
 text = "Back"
 
+[node name="ButtonDisabledInfo" type="Label" parent="." unique_id=1739877008]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -56.0
+offset_right = -3.0
+offset_bottom = -33.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "Fill out all of the information boxes to continue."
+
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

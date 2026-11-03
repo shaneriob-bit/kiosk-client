@@ -150,7 +150,9 @@ func _state_changed(state):
 	update_total_labels()
 	
 	if state == StateManager.ProgramStates.NAME and visible == true:
+		StateManager.print_count = prints_count
 		StateManager.email_count = emails_count
+		StateManager.total_cost = ((get_print_total() + get_email_total()) * photo_count + (StateManager.base_price * photo_count))
 	
 	if state == StateManager.ProgramStates.PAYMENT:
 		for child : TextureButton in StateManager.selected_backgrounds:
