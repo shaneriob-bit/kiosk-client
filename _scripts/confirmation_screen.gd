@@ -25,9 +25,10 @@ func _state_changed(state):
 		
 		add_child(StateManager.copied_background_list)
 		
-		for child in StateManager.copied_background_list.get_node("VBoxContainer").get_children():
-			child.disabled = true
-			child.get_node("Panel").hide()
+		if is_instance_valid(StateManager.copied_background_list):
+			for child in StateManager.copied_background_list.get_node("VBoxContainer").get_children():
+				child.disabled = true
+				child.get_node("Panel").hide()
 		
 		show()
 	else:
@@ -41,4 +42,7 @@ func _on_next_button_pressed() -> void:
 	StateManager.change_state(StateManager.ProgramStates.RECEIPT)
 
 func _on_back_button_pressed() -> void:
+	StateManager.change_state(StateManager.ProgramStates.NAME)
+
+func _on_start_over_pressed() -> void:
 	StateManager.change_state(StateManager.ProgramStates.NAME)

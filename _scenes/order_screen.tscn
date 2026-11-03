@@ -227,14 +227,30 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -312.0
-offset_top = 64.0
-offset_right = -60.0
-offset_bottom = 104.0
+offset_left = -353.0
+offset_top = 56.0
+offset_right = -190.0
+offset_bottom = 130.0
 grow_horizontal = 0
 theme = ExtResource("4_j6q0u")
 theme_override_font_sizes/font_size = 24
-text = "Custom Backgrounds"
+text = "Custom
+Background"
+
+[node name="StartOver" type="Button" parent="." unique_id=279600342]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -88.0
+offset_top = 56.0
+offset_right = -13.0
+offset_bottom = 130.0
+grow_horizontal = 0
+theme = ExtResource("4_j6q0u")
+theme_override_font_sizes/font_size = 24
+text = "Start
+Over"
 
 [node name="PreviewPanel" type="Panel" parent="." unique_id=1445950997]
 visible = false
@@ -337,7 +353,7 @@ You can either choose a picture from the internet or give us one of your own!
 
 (This option is a $5 upcharge since we have to reprogram our software with the image you choose.)
 
-To get started, just press on the custom background to select it, just like any other background! (You may only choose one custom background that you can take multiple photos with)."
+To get started, just press on the custom background to select it, just like any other background!"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -373,6 +389,7 @@ visible = false
 [connection signal="tab_changed" from="TabBar" to="BackgroundSelection" method="_on_tab_bar_tab_changed"]
 [connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="CustomBackgrounds" to="." method="_on_custom_backgrounds_pressed"]
+[connection signal="pressed" from="StartOver" to="." method="_on_start_over_pressed"]
 [connection signal="pressed" from="PreviewPanel/ExitPreview" to="." method="_on_exit_preview_pressed"]
 [connection signal="pressed" from="CustomBackgroundPanel/ExitCustomBackground" to="." method="_on_exit_custom_background_pressed"]
 

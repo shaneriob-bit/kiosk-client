@@ -432,6 +432,16 @@ ok_button_text = "Remove"
 dialog_text = "Removing all backgrounds will take you back to the background selection page. Are you sure you want to continue?"
 dialog_autowrap = true
 
+[node name="StartOverConfirmation" type="ConfirmationDialog" parent="." unique_id=1419191778]
+oversampling_override = 1.0
+title = "Start Over"
+initial_position = 1
+size = Vector2i(508, 200)
+ok_button_text = "Start Over"
+dialog_text = "Are you sure you want to start over?
+All progress will be lost."
+dialog_autowrap = true
+
 [node name="PreviewPanel" type="Panel" parent="." unique_id=246008952]
 visible = false
 custom_minimum_size = Vector2(1024, 800)
@@ -488,6 +498,20 @@ grow_vertical = 0
 theme = ExtResource("2_xyjts")
 theme_override_font_sizes/font_size = 32
 text = "Exit Preview"
+
+[node name="StartOver" type="Button" parent="." unique_id=1687177427]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 176.0
+offset_top = -80.0
+offset_right = 251.0
+offset_bottom = -6.0
+grow_vertical = 0
+theme = ExtResource("2_xyjts")
+theme_override_font_sizes/font_size = 24
+text = "Start
+Over"
 
 [connection signal="pressed" from="Control/PrintsContainer/Subtract" to="." method="_on_subtract_pressed"]
 [connection signal="pressed" from="Control/PrintsContainer/Add" to="." method="_on_add_pressed"]

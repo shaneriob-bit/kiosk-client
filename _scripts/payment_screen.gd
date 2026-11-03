@@ -216,7 +216,9 @@ func _unhandled_input(event: InputEvent) -> void:
 					$RemoveBackgroundConfirm.show()
 				elif event.keycode == KEY_F2:
 					$BackToBackgroundConfirmation.show()
-					
+				elif event.keycode == KEY_F3:
+					$StartOverConfirmation.show()
+
 func there_can_only_be_one_payment_method(button : Node):
 	StateManager.payment_method = button.name
 	for child in button.get_parent().get_children():

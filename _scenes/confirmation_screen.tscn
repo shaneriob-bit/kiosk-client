@@ -138,5 +138,20 @@ theme_override_font_sizes/font_size = 32
 text = "Backgrounds"
 vertical_alignment = 1
 
+[node name="StartOver" type="Button" parent="." unique_id=1570788168]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 176.0
+offset_top = -80.0
+offset_right = 251.0
+offset_bottom = -6.0
+grow_vertical = 0
+theme = ExtResource("2_on0my")
+theme_override_font_sizes/font_size = 24
+text = "Start
+Over"
+
 [connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="StartOver" to="." method="_on_start_over_pressed"]

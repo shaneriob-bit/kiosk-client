@@ -52,9 +52,7 @@ func update_count_label():
 	$DisabledButtonInfo.visible = total_count <= 0
 	
 	$PhotoCost.text = "$%.2f" % (StateManager.base_price * total_count)
-	
-	
-	
+
 func _process(_delta: float) -> void:
 	# this is a massive waste of CPU cycles but we are in a rush here
 	if visible and get_parent().visible:
@@ -71,3 +69,6 @@ func _on_custom_backgrounds_pressed() -> void:
 
 func _on_exit_custom_background_pressed() -> void:
 	$CustomBackgroundPanel.hide()
+
+func _on_start_over_pressed() -> void:
+	StateManager.change_state(StateManager.ProgramStates.HOME)

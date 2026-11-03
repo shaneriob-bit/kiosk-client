@@ -134,7 +134,7 @@ offset_top = -34.0
 offset_right = 615.0
 offset_bottom = 33.0
 grow_vertical = 2
-text = "PRESS ANY KEY TO BEGIN"
+text = "PRESS ANYWHERE TO BEGIN"
 label_settings = SubResource("LabelSettings_mvnrc")
 vertical_alignment = 1
 

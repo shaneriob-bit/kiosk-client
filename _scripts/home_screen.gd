@@ -8,4 +8,5 @@ func _state_changed(state):
 func _input(event: InputEvent) -> void:
 	if self.visible and StateManager.currentProgramState == StateManager.ProgramStates.HOME:
 		if(event != null):
-			StateManager.change_state(StateManager.ProgramStates.BACKGROND)
+			if(event is InputEventKey):
+				StateManager.change_state(StateManager.ProgramStates.BACKGROND)

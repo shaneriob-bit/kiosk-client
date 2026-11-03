@@ -21,9 +21,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -136.0
+offset_left = -144.0
 offset_top = 16.0
-offset_right = 147.0
+offset_right = 139.0
 offset_bottom = 61.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
@@ -63,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_r5mf1")
 
-[node name="Button" type="Button" parent="RecieptPrinting" unique_id=1523918651]
+[node name="HoldingRecieptButton" type="Button" parent="RecieptPrinting" unique_id=1523918651]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -126,14 +126,19 @@ you on your way."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Instructions2" type="Label" parent="Instructions" unique_id=1082753857]
-layout_mode = 0
-offset_left = 24.0
-offset_top = 576.0
-offset_right = 399.0
-offset_bottom = 765.0
+[node name="StartOver" type="Button" parent="Instructions" unique_id=708043190]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 144.0
+offset_top = -504.0
+offset_right = 308.0
+offset_bottom = -453.0
+grow_vertical = 0
+theme = ExtResource("2_jqgkp")
 theme_override_font_sizes/font_size = 32
-text = "Starting over in
-10 second(s)."
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "Start Over"
+
+[connection signal="pressed" from="RecieptPrinting/HoldingRecieptButton" to="." method="_on_holding_reciept_button_pressed"]
+[connection signal="pressed" from="Instructions/StartOver" to="." method="_on_start_over_pressed"]

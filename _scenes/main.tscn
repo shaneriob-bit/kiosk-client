@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d3ouhxciwlerq" path="res://_scenes/payment_screen.tscn" id="7_urak4"]
 [ext_resource type="PackedScene" uid="uid://dmakmkaw5eic0" path="res://_scenes/name_field.tscn" id="8_hi6yo"]
 [ext_resource type="PackedScene" uid="uid://bqi3naxdk7mm5" path="res://_scenes/confirmation_screen.tscn" id="8_owtmn"]
+[ext_resource type="PackedScene" uid="uid://crrm7w13hqhqj" path="res://_scenes/receipt_screen.tscn" id="9_7kglf"]
 
 [node name="Main" type="Node2D" unique_id=1640866435 groups=["GroupListener"]]
 
@@ -40,6 +41,9 @@ visible = false
 visible = false
 
 [node name="ConfirmationScreen" parent="." unique_id=435469620 instance=ExtResource("8_owtmn")]
+visible = false
+
+[node name="ReceiptScreen" parent="." unique_id=1461284293 instance=ExtResource("9_7kglf")]
 visible = false
 
 [node name="IdleScreen" parent="." unique_id=1040489430 groups=["GroupListener"] instance=ExtResource("6_ce27d")]

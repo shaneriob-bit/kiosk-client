@@ -56,3 +56,7 @@ func _process(_delta: float) -> void:
 	else:
 		$NextButton.show()
 		$ButtonDisabledInfo.hide()
+
+
+func _on_start_over_pressed() -> void:
+	StateManager.change_state(StateManager.ProgramStates.HOME)
