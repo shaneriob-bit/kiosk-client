@@ -1,8 +1,8 @@
 To add backgrounds, <br>
 go to %appdata%/Godot/Kiosk-Client <br>
 create a directory called backgrounds (I believe I used the backgrounds folder from the original) <br>
-adding a folder to this directory will make an image <br>
-adding images to the sub directories will add backgrounds <br>
+adding a folder to this directory will make a section <br>
+adding images to the sub directories will add background images <br>
 
 To add previews, <br>
 go to go to %appdata%/Godot/kiosk-client <br>
